@@ -89,7 +89,7 @@
           }
 
      
-         setInterval( () => {
+         const updateTimeandDay = () => {
             timeAndDay.forEach(elem => {
                  if(elem.dataset.testid === 'currentTimeUTC'){
                     elem.textContent = getCurrentTime();
@@ -97,7 +97,9 @@
                         elem.textContent = getCurrentDay();
                  }
              });
-            }, 1000);
+        }
+          updateTimeandDay();
+          setInterval(updateTimeandDay, 1000)
      
       </script>
 </body>
