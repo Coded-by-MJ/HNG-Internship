@@ -71,9 +71,10 @@
 
       <script>
           const timeAndDay = document.querySelectorAll("[data-testid='currentTimeUTC'], [data-testid='currentDay']");
-          const now = new Date();
+          
 
           const getCurrentTime = () => {
+            const now = new Date();
             const hours = now.getUTCHours().toString().padStart(2, '0'); 
             const minutes = now.getUTCMinutes().toString().padStart(2, '0'); 
             const seconds = now.getUTCSeconds().toString().padStart(2, '0');
@@ -82,20 +83,22 @@
           }
 
           const getCurrentDay = () => {
+            const now = new Date();
             const options = { weekday: 'long' };
             return now.toLocaleString('en-US', options);
           }
 
      
-         timeAndDay.forEach(elem => {
+         setInterval( () => {
+            timeAndDay.forEach(elem => {
+                console.log(getCurrentTime()); 
                  if(elem.dataset.testid === 'currentTimeUTC'){
                     elem.textContent = getCurrentTime();
                  }else if(elem.dataset.testid === 'currentDay'){
                         elem.textContent = getCurrentDay();
-                 }else{
-                    return;
                  }
              });
+            }, 1000);
      
       </script>
 </body>
