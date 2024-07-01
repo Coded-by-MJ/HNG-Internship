@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miracle Justice || HNG Internship Stage 1 Task </title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <main class="container">
+
+        <div class="info-wrapper">
+              <div class="info">
+                   <b>Slack Profile Picture:</b> 
+                   <img src="Miracle_2.jpg" title="Slack Profile Picture" alt="my photo" width="auto" height="auto" data-testid="slackProfilePicture">
+              </div>
+              
+              <div class="info">
+                   <b>Slack Name:</b> 
+                   <h3 data-testid="slackDisplayName">Miracle Justice</h3>
+              </div>
+
+              <div class="info">
+                   <b>Slack Email:</b>
+                    <h3 data-testid="slackEmail">miracleosemudiahen@hotmail.com</h3>
+              </div> 
+              
+              <div class="info">
+                   <b>Current Time in UTC:</b> 
+                   <h3 data-testid="currentTimeUTC">HH:MM:SS</h3>
+              </div>
+              
+              <div class="info">
+                   <b>Current Day of the Week :</b> 
+                   <h3 data-testid="currentDay">Monday</h3>
+              </div>
+        </div>
+
+        <div class="links-wrapper">
+                 <h2 class="links-heading">Additional Links</h2>
+                 <ul>
+                    <li>
+                        <a href="http://hng.tech/learn" target="_blank"  data-testid="hngLink">HNG Learn</a>
+                    </li> 
+
+                    <li>
+                        <a href="http://keyword.dog/" target="_blank"  data-testid="keywordLink">Keyword</a>
+                    </li> 
+
+                    <li>
+                        <a href="http://scrapeanyweb.site/" target="_blank" data-testid="scrapeanywebLink">Scrape Any Web</a>
+                    </li>
+                 
+                </ul>
+        </div>
+
+        <div class="goals-wrapper">
+            <h2 class="goals-heading">My Goals in the Tech Field for the Next Two Years</h2>
+
+            <ul>
+                <li>Deepen my knowledge of ReactJs, from beginner to advanced concepts of ReactJS.</li>
+                <li>Contributing More to the Open Source Community.</li>
+                <li>Improving my problem-solving and algorithmic skills.</li>
+                <li>Landing my first tech job.</li>
+            </ul>
+        </div>
+         
+    </main>
+
+      <script>
+          const timeAndDay = document.querySelectorAll("[data-testid='currentTimeUTC'], [data-testid='currentDay']");
+          const now = new Date();
+
+          const getCurrentTime = () => {
+            const hours = now.getUTCHours().toString().padStart(2, '0'); 
+            const minutes = now.getUTCMinutes().toString().padStart(2, '0'); 
+            const seconds = now.getUTCSeconds().toString().padStart(2, '0');
+  
+            return `${hours}:${minutes}:${seconds}`;
+          }
+
+          const getCurrentDay = () => {
+            const options = { weekday: 'long' };
+            return now.toLocaleString('en-US', options);
+          }
+
+     
+         timeAndDay.forEach(elem => {
+                 if(elem.dataset.testid === 'currentTimeUTC'){
+                    elem.textContent = getCurrentTime();
+                 }else if(elem.dataset.testid === 'currentDay'){
+                        elem.textContent = getCurrentDay();
+                 }else{
+                    return;
+                 }
+             });
+     
+      </script>
+</body>
+</html>
