@@ -91,7 +91,6 @@
      
          setInterval( () => {
             timeAndDay.forEach(elem => {
-                console.log(getCurrentTime()); 
                  if(elem.dataset.testid === 'currentTimeUTC'){
                     elem.textContent = getCurrentTime();
                  }else if(elem.dataset.testid === 'currentDay'){
