@@ -1,5 +1,5 @@
 
-# MY HNG INTERNSHIP REPO
+# HNG INTERNSHIP STAGE ONE
 
 
 ## Table of contents
